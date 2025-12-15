@@ -9,7 +9,7 @@
 
 
 // to remove debug prints about game loading error codes
-#define DBGSTR //DbgPrint
+#define DBGSTR DbgPrint
 
 
 // some vars for unloading/unhooking
@@ -305,9 +305,10 @@ int XexpResolveImageImportsHook(PLDR_DATA_TABLE_ENTRY hModule, int importTable, 
 		int Strlen = strlen(Ptr);
 		if (GetModuleHandle(Ptr) == 0 || !strcmp(Ptr, "xbdm.xex"))
 		{
-			DBGSTR("[HvP2][XexpResolveImageImportsHook]: Patching Module %s\n", Ptr);
-			ZeroMemory(Ptr, Strlen);
-			strcpy(Ptr, "HvP2.xex");
+			DBGSTR("[HvP2]: xbdm.xex is getting loaded");
+			//DBGSTR("[HvP2][XexpResolveImageImportsHook]: Patching Module %s\n", Ptr);
+			//ZeroMemory(Ptr, Strlen);
+			//strcpy(Ptr, "HvP2.xex");
 			fIsLoadingDebugBuild = TRUE;
 		}
 
@@ -429,7 +430,7 @@ SetupKrnlHooks:
 	DBGSTR("Done!\n");
 
 	DBGSTR("\n\n\n");
-	DbgPrint("[HvP2]: Made by 'Xx jAmes t xX' for dash 17559\n");
+	DbgPrint("[HvP2]: Made by 'Xx jAmes t xX' for dash 17559 and modified by theaperturecat\n");
 	DbgPrint("[HvP2]: Special thanks to 'Chr0m3 x MoDz' for testing and making me update this app again!\n");
 
 	// so we know we are running!
